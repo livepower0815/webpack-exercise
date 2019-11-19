@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: ''
   },
-  mode: 'none',
+  mode: 'production',
   module: {
     rules: [
       {
@@ -39,6 +39,12 @@ module.exports = {
           }
         }
       },
+      {
+        test: /\.hbs$/,
+        use: [
+          'handlebars-loader'
+        ]
+      }
     ]
   },
   plugins: [
@@ -60,7 +66,9 @@ module.exports = {
 
     //  使用 HTML template
     new HtmlWebpackPlugin({
-      title: 'My App',
+      title: 'Hello World',
+      template: 'src/index.hbs',
+      description: 'Some description'
     }),
   ]
 }
